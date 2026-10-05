@@ -1,5 +1,15 @@
-import Image from "next/image";
+import { PostList } from '@/components/PostList';
+import { SpinLoader } from '@/components/SpinLoader';
+import { PostFeatured } from '@/components/PostFeatured';
+import { Suspense } from 'react';
 
-export default function HomePage() {
-  return  <h1>Home Page .tsx</h1>
+export default async function HomePage() {
+  return (
+    <>
+      <Suspense fallback={<SpinLoader className='min-h-20 mb-16' />}>
+        <PostFeatured />
+        <PostList />
+      </Suspense>
+    </>
+  );
 }
