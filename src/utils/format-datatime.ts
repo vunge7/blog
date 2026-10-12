@@ -18,3 +18,11 @@ export function formateDistanceToNow(rawDate: string): string {
     addSuffix: true,
   });
 }
+
+export function formatHour(timestampMs: number): string {
+  const date = new Date(timestampMs);
+
+  return format(date, 'HH:mm:ss', {
+    locale: ptBR,
+  });
+}
